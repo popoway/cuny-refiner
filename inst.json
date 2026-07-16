@@ -1,0 +1,104 @@
+{
+  "BAR01": {
+    "description": "Baruch College",
+    "rmp": 222
+  },
+  "BMC01": {
+    "description": "Borough of Manhattan CC",
+    "rmp": 18470
+  },
+  "BCC01": {
+    "description": "Bronx CC",
+    "rmp": 4257
+  },
+  "BKL01": {
+    "description": "Brooklyn College",
+    "rmp": 223
+  },
+  "CTY01": {
+    "description": "City College",
+    "rmp": 224
+  },
+  "CSI01": {
+    "description": "College of Staten Island",
+    "rmp": 225
+  },
+  "GRD01": {
+    "description": "Graduate Center",
+    "rmp": 5060
+  },
+  "NCC01": {
+    "description": "Guttman CC",
+    "rmp": 16756
+  },
+  "HOS01": {
+    "description": "Hostos CC",
+    "rmp": 5136
+  },
+  "HTR01": {
+    "description": "Hunter College",
+    "rmp": 226
+  },
+  "JJC01": {
+    "description": "John Jay College",
+    "rmp": 227
+  },
+  "KCC01": {
+    "description": "Kingsborough CC",
+    "rmp": 4105
+  },
+  "LAG01": {
+    "description": "LaGuardia CC",
+    "rmp": 4269
+  },
+  "LEH01": {
+    "description": "Lehman College",
+    "rmp": 228
+  },
+  "MHC01": {
+    "description": "Macaulay Honors College"
+  },
+  "MEC01": {
+    "description": "Medgar Evers College",
+    "rmp": 229
+  },
+  "NYT01": {
+    "description": "NYC College of Technology",
+    "rmp": 230
+  },
+  "QNS01": {
+    "description": "Queens College",
+    "rmp": 231
+  },
+  "QCC01": {
+    "description": "Queensborough CC",
+    "rmp": 4141
+  },
+  "SOJ01": {
+    "description": "School of Journalism",
+    "rmp": 17638
+  },
+  "SLU01": {
+    "description": "School of Labor&Urban Studies",
+    "rmp": 17785
+  },
+  "LAW01": {
+    "description": "School of Law",
+    "rmp": 5176
+  },
+  "MED01": {
+    "description": "School of Medicine"
+  },
+  "SPS01": {
+    "description": "School of Professional Studies",
+    "rmp": 14617
+  },
+  "SPH01": {
+    "description": "School of Public Health",
+    "rmp": 17230
+  },
+  "YRK01": {
+    "description": "York College",
+    "rmp": 13771
+  }
+}

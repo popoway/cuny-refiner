@@ -1,0 +1,36 @@
+{
+  "name": "CUNY Refiner",
+  "description": "Simplify the CUNY interface and add useful features.",
+  "version": "2026.1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "inst.json"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://globalsearch.cuny.edu/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

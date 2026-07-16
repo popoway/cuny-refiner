@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CUNY Refiner Settings</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f9;
+      --surface: #ffffff;
+      --text: #1d252d;
+      --muted: #607080;
+      --border: #d6dce2;
+      --accent: #0b5cab;
+      --accent-soft: #e6f0fb;
+    }
+
+    body {
+      margin: 0;
+      width: 320px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      background: radial-gradient(circle at top right, #edf5ff, var(--bg) 45%);
+      color: var(--text);
+    }
+
+    .wrap {
+      padding: 14px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 6px 18px rgba(17, 24, 39, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      line-height: 1.25;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .version-badge {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    select,
+    input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--text);
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    .field-block {
+      margin-top: 12px;
+    }
+
+    .hint {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .term-preview {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--accent);
+      min-height: 16px;
+    }
+
+    .term-preview.invalid {
+      color: #b42318;
+    }
+
+    .status {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--accent);
+      min-height: 16px;
+      background: var(--accent-soft);
+      border-radius: 6px;
+      padding: 4px 6px;
+      visibility: hidden;
+    }
+
+    .status.show {
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>CUNY Refiner Settings<span id="app-version" class="version-badge"></span></h1>
+      <p>Adjust preferences below to optimize your CUNY experience, which are saved automatically, and stored locally in the extension.</p>
+
+      <label for="institution">Default Institution</label>
+      <select id="institution" aria-label="Default institution">
+        <option value="">Loading institutions...</option>
+      </select>
+
+      <div class="field-block">
+        <label for="default-term">Default Term</label>
+        <input
+          id="default-term"
+          type="text"
+          inputmode="numeric"
+          maxlength="4"
+          placeholder="e.g. 1269"
+          aria-label="Default term"
+        >
+        <p class="hint">Format: 1YYT where T is 9 (Fall), 6 (Summer), or 2 (Spring).</p>
+        <div id="term-preview" class="term-preview" aria-live="polite"></div>
+      </div>
+
+      <div id="status" class="status" aria-live="polite"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
