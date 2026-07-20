@@ -1,8 +1,31 @@
 const LINK_CLASS_GD = 'cuny-refiner-GD-link';
 const LINK_CLASS_EX = 'cuny-refiner-EX-link';
 const DEFAULT_INSTITUTION_KEY = 'defaultInstitution';
+const DEFAULT_TERM_KEY = 'defaultTerm';
 
 let institutionMapPromise;
+
+async function getDefaultInstitutionCode() {
+  const stored = await chrome.storage.local.get(DEFAULT_INSTITUTION_KEY);
+  const institutionCode = stored[DEFAULT_INSTITUTION_KEY];
+  if (typeof institutionCode !== 'string') {
+    return null;
+  }
+
+  const normalized = institutionCode.trim();
+  return normalized || null;
+}
+
+async function getDefaultTermCode() {
+  const stored = await chrome.storage.local.get(DEFAULT_TERM_KEY);
+  const termCode = stored[DEFAULT_TERM_KEY];
+  if (typeof termCode !== 'string') {
+    return null;
+  }
+
+  const normalized = termCode.trim();
+  return normalized || null;
+}
 
 async function getInstitutionMap() {
   if (!institutionMapPromise) {
@@ -19,9 +42,7 @@ async function getInstitutionMap() {
   return institutionMapPromise;
 }
 
-async function getDefaultRmpValue() {
-  const stored = await chrome.storage.local.get(DEFAULT_INSTITUTION_KEY);
-  const institutionCode = stored[DEFAULT_INSTITUTION_KEY];
+async function getDefaultRmpValue(institutionCode) {
   if (!institutionCode) {
     return null;
   }
@@ -33,6 +54,97 @@ async function getDefaultRmpValue() {
   }
 
   return rmp;
+}
+
+function fillDefaultInstitutionInputs(institutionCode) {
+  if (!institutionCode) {
+    return;
+  }
+
+  const inputs = document.querySelectorAll('input[name="InputKeys_INSTITUTION"]');
+  inputs.forEach((input) => {
+    if (input.value.trim()) {
+      return;
+    }
+
+    if (input.value === institutionCode) {
+      return;
+    }
+
+    input.value = institutionCode;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+}
+
+function checkDefaultInstitutionCheckbox(institutionCode) {
+  if (!institutionCode) {
+    return;
+  }
+
+  const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"][name="inst_selection"]'));
+  if (!checkboxes.length) {
+    return;
+  }
+
+  // Respect the existing user/page selection state.
+  const hasChecked = checkboxes.some((checkbox) => checkbox.checked);
+  if (hasChecked) {
+    return;
+  }
+
+  const target = checkboxes.find((checkbox) => checkbox.value === institutionCode);
+  if (!target || target.checked) {
+    return;
+  }
+
+  target.checked = true;
+  target.dispatchEvent(new Event('input', { bubbles: true }));
+  target.dispatchEvent(new Event('change', { bubbles: true }));
+}
+
+function fillDefaultTermInputs(termCode) {
+  if (!termCode) {
+    return;
+  }
+
+  const inputs = document.querySelectorAll('input[name="InputKeys_STRM"]');
+  inputs.forEach((input) => {
+    if (input.value.trim()) {
+      return;
+    }
+
+    if (input.value === termCode) {
+      return;
+    }
+
+    input.value = termCode;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+}
+
+function fillDefaultTermSelects(termCode) {
+  if (!termCode) {
+    return;
+  }
+
+  const selects = document.querySelectorAll('select[name="term_value"]');
+  selects.forEach((select) => {
+    // Do not override an existing, meaningful selection.
+    if (typeof select.value === 'string' && select.value.trim()) {
+      return;
+    }
+
+    const targetOption = Array.from(select.options).find((option) => option.value === termCode);
+    if (!targetOption) {
+      return;
+    }
+
+    select.value = termCode;
+    select.dispatchEvent(new Event('input', { bubbles: true }));
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  });
 }
 
 function getInstructorText(cell) {
@@ -129,7 +241,15 @@ function ensureLinkForCell(cell, rmpValue) {
 }
 
 async function injectInstructorLinks() {
-  const rmpValue = await getDefaultRmpValue();
+  const institutionCode = await getDefaultInstitutionCode();
+  const termCode = await getDefaultTermCode();
+
+  fillDefaultInstitutionInputs(institutionCode);
+  checkDefaultInstitutionCheckbox(institutionCode);
+  fillDefaultTermInputs(termCode);
+  fillDefaultTermSelects(termCode);
+
+  const rmpValue = await getDefaultRmpValue(institutionCode);
   const cells = document.querySelectorAll('table td[data-label="Instructor"]');
   cells.forEach((cell) => ensureLinkForCell(cell, rmpValue));
 }
@@ -146,7 +266,11 @@ observer.observe(document.documentElement, {
 });
 
 chrome.storage.onChanged.addListener((changes, areaName) => {
-  if (areaName !== 'local' || !changes[DEFAULT_INSTITUTION_KEY]) {
+  if (areaName !== 'local') {
+    return;
+  }
+
+  if (!changes[DEFAULT_INSTITUTION_KEY] && !changes[DEFAULT_TERM_KEY]) {
     return;
   }
 

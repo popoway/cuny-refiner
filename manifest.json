@@ -1,7 +1,7 @@
 {
   "name": "CUNY Refiner",
   "description": "Simplify the CUNY interface and add useful features.",
-  "version": "2026.1.0",
+  "version": "26.30.3",
   "manifest_version": 3,
   "permissions": [
     "contextMenus",
@@ -23,7 +23,8 @@
   "content_scripts": [
     {
       "matches": [
-        "*://globalsearch.cuny.edu/*"
+        "*://globalsearch.cuny.edu/*",
+        "*://cssa.cunyfirst.cuny.edu/*"
       ],
       "js": [
         "content.js"
