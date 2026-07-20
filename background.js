@@ -30,7 +30,7 @@ const MENU_CONFIG = {
     url: 'https://sb.cunyfirst.cuny.edu/advisee.jsp?advisee=',
   },
 };
-const MENU_URL_PATTERNS = ['*://home.cunyfirst.cuny.edu/*', '*://cssa.cunyfirst.cuny.edu/*', '*://hrsa.cunyfirst.cuny.edu/*', '*://sb.cunyfirst.cuny.edu/*', '*://explorer.cuny.edu/*', '*://*.campus.eab.com/*', '*://degreeworks.cuny.edu/*', '*://cunyithelp.cuny.edu/*', '*://support.qc.cuny.edu/*'];
+const MENU_URL_PATTERNS = ['*://home.cunyfirst.cuny.edu/*', '*://cssa.cunyfirst.cuny.edu/*', '*://hrsa.cunyfirst.cuny.edu/*', '*://sb.cunyfirst.cuny.edu/*', '*://explorer.cuny.edu/*', '*://*.campus.eab.com/*', '*://degreeworks.cuny.edu/*', '*://cunyithelp.cuny.edu/*', '*://support.qc.cuny.edu/*', '*://outlook.cloud.microsoft/*', '*://cuny907-my.sharepoint.com/*', '*://cuny907.sharepoint.com/*'];
 
 chrome.runtime.onInstalled.addListener(() => {
   Object.entries(MENU_CONFIG).forEach(([id, config]) => {
