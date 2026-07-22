@@ -4,6 +4,7 @@ const MENU_ID_MSI = 'msi-selection';
 const MENU_ID_TREX = 'trex-selection';
 const MENU_ID_dw = 'dw-selection';
 const MENU_ID_sb = 'sb-selection';
+const MENU_ID_nav = 'nav-selection';
 const MENU_CONFIG = {
   [MENU_ID_SSV]: {
     title: 'Open Student Summary View for "%s"',
@@ -29,10 +30,14 @@ const MENU_CONFIG = {
     title: 'Open Schedule Builder for "%s"',
     url: 'https://sb.cunyfirst.cuny.edu/advisee.jsp?advisee=',
   },
+  [MENU_ID_nav]: {
+    title: 'Open QC Navigate for "%s"',
+    url: 'https://qc-cuny.campus.eab.com/search?keyword=',
+  },
 };
 const MENU_URL_PATTERNS = ['*://home.cunyfirst.cuny.edu/*', '*://cssa.cunyfirst.cuny.edu/*', '*://hrsa.cunyfirst.cuny.edu/*', '*://sb.cunyfirst.cuny.edu/*', '*://explorer.cuny.edu/*', '*://*.campus.eab.com/*', '*://degreeworks.cuny.edu/*', '*://cunyithelp.cuny.edu/*', '*://support.qc.cuny.edu/*', '*://outlook.cloud.microsoft/*', '*://cuny907-my.sharepoint.com/*', '*://cuny907.sharepoint.com/*', '*://usc-excel.officeapps.live.com/*'];
 
-chrome.runtime.onInstalled.addListener(() => {
+function createSelectionMenus() {
   Object.entries(MENU_CONFIG).forEach(([id, config]) => {
     chrome.contextMenus.create({
       id,
@@ -41,6 +46,16 @@ chrome.runtime.onInstalled.addListener(() => {
       documentUrlPatterns: MENU_URL_PATTERNS,
     });
   });
+}
+
+chrome.runtime.onInstalled.addListener((details) => {
+  createSelectionMenus();
+
+  if (details.reason === 'install') {
+    chrome.tabs.create({
+      url: chrome.runtime.getURL('welcome.html'),
+    });
+  }
 });
 
 chrome.contextMenus.onClicked.addListener((info) => {

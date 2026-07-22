@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to CUNY Refiner</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-start: #edf4ff;
+      --bg-end: #f9fcff;
+      --surface: #ffffff;
+      --text: #17212b;
+      --muted: #536375;
+      --accent: #0b5cab;
+      --accent-soft: #e8f2ff;
+      --border: #d6e3f2;
+      --ok: #2a6f3f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      background:
+        radial-gradient(900px 420px at 80% -10%, #cfe3ff 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg-start), var(--bg-end));
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .panel {
+      width: min(760px, 100%);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 14px 36px rgba(18, 46, 78, 0.14);
+      padding: 28px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 34px);
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h1 img {
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .subtitle {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    .steps {
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fbfdff;
+    }
+
+    .step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .step h2 {
+      margin: 2px 0 6px;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 15px;
+    }
+
+    .tip {
+      margin: 18px 0 0;
+      border-left: 4px solid var(--ok);
+      background: #f3fbf6;
+      color: #244d34;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #084a8a;
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      background: #fff;
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: #f4f8ff;
+    }
+
+    @media (max-width: 560px) {
+      .panel {
+        padding: 20px;
+      }
+
+      .step {
+        grid-template-columns: 34px 1fr;
+        gap: 10px;
+      }
+
+      .step-num {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+      }
+
+      .step h2 {
+        font-size: 16px;
+      }
+
+      .step p {
+        font-size: 14px;
+      }
+
+      h1 {
+        gap: 10px;
+      }
+
+      h1 img {
+        width: 42px;
+        height: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="panel">
+    <h1><img src="images/icon500.png" alt="CUNY Refiner" width="48" height="48">Welcome to CUNY Refiner</h1>
+    <p class="subtitle">One quick setup makes everyday use much faster.</p>
+
+    <ol class="steps" aria-label="Getting started steps">
+      <li class="step">
+        <div class="step-num" aria-hidden="true">1</div>
+        <div>
+          <h2>Pin CUNY Refiner to your toolbar</h2>
+          <p>Open the browser extensions menu, find CUNY Refiner, and click the pin icon so it stays in your top menu bar.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">2</div>
+        <div>
+          <h2>Click the CUNY Refiner icon</h2>
+          <p>Use the pinned icon to open settings and configure your default institution and term preferences.</p>
+        </div>
+      </li>
+    </ol>
+
+    <p class="tip">Tip: Once your preferences are saved, CUNY Refiner will use them automatically in supported pages.</p>
+    <div class="actions">
+      <button id="open-extensions" class="btn btn-primary" type="button">Open Extensions Menu</button>
+      <button id="close-tab" class="btn btn-secondary" type="button">Close This Tab</button>
+    </div>
+    <p class="footer">You can close this tab any time after setup.</p>
+  </main>
+  <script src="welcome.js"></script>
+</body>
+</html>
