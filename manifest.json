@@ -1,11 +1,13 @@
 {
   "name": "CUNY Refiner",
   "description": "Simplify the CUNY interface and add useful features.",
-  "version": "26.30.3",
+  "version": "26.31.4",
   "manifest_version": 3,
   "permissions": [
     "contextMenus",
-    "storage"
+    "storage",
+    "activeTab",
+    "scripting"
   ],
   "web_accessible_resources": [
     {
@@ -29,6 +31,19 @@
       "js": [
         "content.js"
       ]
+    },
+    {
+      "matches": [
+        "*://cuny907.sharepoint.com/*",
+        "*://cuny907-my.sharepoint.com/*",
+        "*://usc-excel.officeapps.live.com/*"
+      ],
+      "js": [
+        "content-excel.js"
+      ],
+      "world": "MAIN",
+      "all_frames": true,
+      "match_about_blank": true
     }
   ],
   "action": {
