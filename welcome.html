@@ -74,6 +74,40 @@
       gap: 12px;
     }
 
+    .onboarding-layout {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .onboarding-layout .steps {
+      margin: 0;
+    }
+
+    .demo-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fbfdff;
+      padding: 10px;
+    }
+
+    .demo-card h2 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .demo-media {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+
     .step {
       display: grid;
       grid-template-columns: 40px 1fr;
@@ -167,6 +201,10 @@
         padding: 20px;
       }
 
+      .onboarding-layout {
+        grid-template-columns: 1fr;
+      }
+
       .step {
         grid-template-columns: 34px 1fr;
         gap: 10px;
@@ -202,22 +240,29 @@
     <h1><img src="images/icon500.png" alt="CUNY Refiner" width="48" height="48">Welcome to CUNY Refiner</h1>
     <p class="subtitle">One quick setup makes everyday use much faster.</p>
 
-    <ol class="steps" aria-label="Getting started steps">
-      <li class="step">
-        <div class="step-num" aria-hidden="true">1</div>
-        <div>
-          <h2>Pin CUNY Refiner to your toolbar</h2>
-          <p>Open the browser extensions menu, find CUNY Refiner, and click the pin icon so it stays in your top menu bar.</p>
-        </div>
-      </li>
-      <li class="step">
-        <div class="step-num" aria-hidden="true">2</div>
-        <div>
-          <h2>Click the CUNY Refiner icon</h2>
-          <p>Use the pinned icon to open settings and configure your default institution and term preferences.</p>
-        </div>
-      </li>
-    </ol>
+    <section class="onboarding-layout" aria-label="Getting started">
+      <ol class="steps" aria-label="Getting started steps">
+        <li class="step">
+          <div class="step-num" aria-hidden="true">1</div>
+          <div>
+            <h2><b>Pin</b> CUNY Refiner to your toolbar</h2>
+            <p>Open the browser extensions menu, find CUNY Refiner, and click the pin icon so it stays in your top menu bar.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">2</div>
+          <div>
+            <h2><b>Click</b> the CUNY Refiner icon</h2>
+            <p>Use the pinned icon to open settings and configure your default institution and term preferences.</p>
+          </div>
+        </li>
+      </ol>
+
+      <aside class="demo-card" aria-label="Pin demo preview">
+        <h2>Visual Demo</h2>
+        <img class="demo-media" src="images/pin.webp" alt="Animated demo showing how to pin CUNY Refiner" loading="eager" decoding="async">
+      </aside>
+    </section>
 
     <p class="tip">Tip: Once your preferences are saved, CUNY Refiner will use them automatically in supported pages.</p>
     <div class="actions">
