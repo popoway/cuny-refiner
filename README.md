@@ -12,19 +12,15 @@
   </a>
 
   <h3 align="center">CUNY Refiner</h3>
+  <p align="center">Simplify the CUNY interface and add useful features.</p>
+
+| Browser   | Install from ... |
+| :-------: | ---------------- |
+| <img src="https://github.com/user-attachments/assets/b0136512-56a5-4856-8c50-4971c957a24f" alt="Get CUNY Refiner for Firefox"> | <a href="https://addons.mozilla.org/en-US/firefox/addon/cuny-refiner/" target="_blank">Firefox Add-ons</a> |
+| <img src="https://github.com/user-attachments/assets/5463ef88-873b-4516-8514-5277664cfde7" alt="Get CUNY Refiner for Chromium"> | <a href="https://chromewebstore.google.com/detail/cuny-refiner/jciheljchcgmbpkmeagonpfgadfjmmhj" target="_blank">Chrome Web Store</a> |
 
   <p align="center">
-    Simplify the CUNY interface and add useful features.
-    <br />
     <a href="#readme-toc"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://chromewebstore.google.com/detail/cuny-refiner/jciheljchcgmbpkmeagonpfgadfjmmhj" target="_blank">
-      <img src="images/chrome.png" alt="Available in the Chrome Web Store" height="40">
-    </a>
-    <a href="https://addons.mozilla.org/en-US/firefox/addon/cuny-refiner/" target="_blank">
-      <img src="images/firefox.png" alt="Get it on Firefox Add-ons" height="40">
-    </a>
     <br />
     <a href="https://github.com/popoway/cuny-refiner/issues">Report Bug</a>
     ·
@@ -52,7 +48,7 @@ This project is currently under development and will be updated periodically.
 
 ## Getting Started
 
-**🛑 If you only want to download and use the extension in your browser, not code and debug it, you should scroll up and use [one of these buttons](#readme-top) instead. 🛑**
+**🛑 If you only want to download and use the extension in your browser, not code and debug it, you should scroll up and use [one of these "Install from ..." links](#readme-top) instead. 🛑**
 
 To set up this project *locally* for development purposes, simply clone the repo with
 ```sh
