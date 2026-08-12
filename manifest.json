@@ -1,7 +1,7 @@
 {
   "name": "CUNY Refiner",
   "description": "Simplify the CUNY interface and add useful features.",
-  "version": "26.31.10",
+  "version": "26.33.13",
   "manifest_version": 3,
   "icons": {
     "16": "images/icon16.png",

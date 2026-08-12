@@ -16,7 +16,7 @@ const MENU_CONFIG = {
   },
   [MENU_ID_MSI]: {
     title: 'Open Manage Service Indicators for "%s"',
-    url: 'https://cssa.cunyfirst.cuny.edu/psc/cnycsprd/EMPLOYEE/SA/c/MAINTAIN_SERVICE_IND_STDNT.ACTIVE_SRVC_INDICA.GBL&?IsFolder&Action=&EMPLID=',
+    url: 'https://home.cunyfirst.cuny.edu/psp/cnyihprd/EMPLOYEE/SA/c/MAINTAIN_SERVICE_IND_STDNT.ACTIVE_SRVC_INDICA.GBL?Page=SRVC_IND_SUMRY&Action=U&ACAD_CAREER=UGRD&SCC_SI_EDIT_MODE=&SCC_SI_MODE=A&EMPLID=',
   },
   [MENU_ID_TREX]: {
     title: 'Open T-Rex Transfer Plan for "%s"',
