@@ -56,6 +56,8 @@ To set up this project *locally* for development purposes, simply clone the repo
 ```
 Then follow these instructions: [Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world) and [Firefox](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 
+To package for distribution, run `make clean && make zip` to generate a store-ready archive in `/build`.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contributing
